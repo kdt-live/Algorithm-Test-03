@@ -3,20 +3,20 @@
 
 # solution
 def is_correct_word(word):
+    dict_ = {
+        "{" : "}",
+        "(" : ")",
+        "[" : "]",
+        "<" : ">",
+    }
+    
     lst_2 = []
     for ch in word:
-        if ch in "{[(":
+        if ch in "{[(<":
             lst_2.append(ch)
-        elif ch in "}])":
-            if ch == "}":
-                if lst_2.pop() != "{":
-                    return 0
-            elif ch == "]":
-                if lst_2.pop() != "[":
-                    return 0
-            else:
-                if lst_2.pop() != "(":
-                    return 0
+        elif ch in "}])>":
+            if dict_[lst_2.pop()] != ch:
+                return 0
     
     if lst_2:
         return 0
