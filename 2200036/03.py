@@ -9,9 +9,7 @@ for t in range(1, T + 1):
         lists.append((mid * 0.35) + (fin + 0.45) + (assgn * 0.2))
     s_lists = sorted(lists)[::-1]
     rank = s_lists.index(lists[K])
-    if rank // (students // 10) :
-        print("D0")
-        
+    
 
     
 # K = 2
