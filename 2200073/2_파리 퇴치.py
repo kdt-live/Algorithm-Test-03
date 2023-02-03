@@ -1,7 +1,5 @@
 import sys
 sys.stdin = open('input_2.txt', 'r')
-import time
-start_time = time.time()
 
 T = int(input())
 
@@ -17,5 +15,3 @@ for t in range(T):
                     sum_ += d[x][y]
             result.append(sum_)
     print(f'#{t+1} {max(result)}')
-end_time = time.time()
-print(end_time - start_time)

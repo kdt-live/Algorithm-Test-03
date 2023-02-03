@@ -26,24 +26,3 @@ for _ in range(10):
     password(d_)
      
     print(f'#{t}', *d_)
-
-
-
-"""
-for _ in range(10):
-    t = int(input())
-    d = list(map(int, input().split()))
-
-    min_ = min(d)
-    mm = min_//15
-
-    d = list(map(lambda x: x-(mm-1)*15 , d))
-    a = 0
-    while a > 0:
-        for 
-    
-    
-    # password(d)
-    
-    print(f'#{t}', *d)
-"""

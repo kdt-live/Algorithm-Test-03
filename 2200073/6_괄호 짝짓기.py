@@ -25,10 +25,9 @@ for t in range(10):
             if stack.pop() != '<':
                 f = 0
                 break
-    else:
-        f = 1
-    if stack:
-        f = 0
-    else:
-        f = 1
-    print(f'#{t+1}',f)
+    else:    
+        if stack:
+            f = 0
+        else:
+            f = 1
+    print(f'#{t+1} {f}')
