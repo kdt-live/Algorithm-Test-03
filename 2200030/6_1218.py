@@ -1,5 +1,4 @@
-'''1218 .
-[S/W 문제해결 기본] 4일차 - 괄호 짝짓기
+'''1218 [S/W 문제해결 기본] 4일차 - 괄호 짝짓기
 4 종류의 괄호문자들 '()', '[]', '{}', '<>' 로 이루어진 문자열이 주어진다.
 이 문자열에 사용된 괄호들의 짝이 모두 맞는지 판별하는 프로그램을 작성한다.
 예를 들어 아래와 같은 문자열은 유효하다고 판단할 수 있다.
@@ -34,33 +33,45 @@
 [{({[<{[<{[[[<[{[[[[{([{[<[[<<[{{((<[([[<[(<[({}[]<>[]()[]()(){}){})<>()>[][]<>[])<><>[](){}[]{}<>]><>]])]>[]){}<>)[][]}}<><>()<>]<>><>{}>[]<>]{}]>]<>}]{}())[]}[]]<>]]]}]()>]<>(){}]()<>()]()}>{}<>]{}}>]()[]()[]})()}]()
 258
 ({{[({<{<<{{([[<{({{{[[({[<(<{<<{<<{{{{([{[{<{{[<<[[[<[{<(<[({(<>)})]><>[])()>{}}[]]{}<>><>]]]<>>{}>]}{}[]}>}]<>[]}]){}<>{}}[]}}}{}<>>>}>[]><><>()<>[]}><>)><><><>]}){}]]<>[]<>}[]<>{}}}()<>)}<>{}[]>][]{}])<>[][]{}}()}>[]<>>}<><>>()}{}<><>[]()())<>]}{}{}[]}[])
-
 '''
 
 import sys
 sys.stdin = open("input.txt", "r")
-from pprint import pprint
-import heapq
-from itertools import combinations
+from collections import deque
 
 left = ['(', '[', '{', '<']
 right = [')', ']', '}', '>']
-
-lst = []
-for T in range(10):
+l = []
+r = []
+l_lst = deque(l)
+r_lst = deque(r)
+for T in range(1,11):
     test_case = int(input())
     for t in str(input()):
-        print(test_case)
         if t in left:
-            lst.append(t)
+            l_lst.append(t)
         elif t in right:
             t_index = right.index(t)
-            print(test_case, t)
-            if lst[-1] == left[t_index]:
-                lst.pop
-            elif lst[0] == None:
-                ans = 0
-                pass
-        else:
-            ans = 1
-    print(f'#{T} {ans}')
+            if l_lst[-1] == left[t_index]:
+                l_lst.pop()
+            else:
+                r_lst.append(t)
+        
+    if len(l_lst) + len(r_lst) == 0:
+        ans = 1
+    else:
+        ans = 0
+    l_lst.clear()
+    r_lst.clear()
+    print(f'#{T}', ans)
+
+#1 1
+#2 0
+#3 1
+#4 1
+#5 1
+#6 0
+#7 0
+#8 1
+#9 0
+#10 1

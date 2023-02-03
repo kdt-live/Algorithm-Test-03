@@ -1,6 +1,5 @@
 '''1983 조교의 성적 매기기
-
-학점은 상대평가로 주어지는데, 총 10개의 평점이 있다.
+총 10개의 평점이 있다.
 [A+, AO, A-, B+, BO, B-, C+, CO, C-, DO]
 [총점 = 중간고사 (35%) + 기말고사 (45%) + 과제 (20%)]
 10 개의 평점을 총점이 높은 순서대로 부여하는데,
@@ -23,20 +22,43 @@
 테스트 케이스 t에 대한 결과는 “#t”을 찍고, 한 칸 띄고, 정답을 출력한다.
 (t는 테스트 케이스의 번호를 의미하며 1부터 시작한다.)'''
 
+'''
+[총점 = 중간고사 (35%) + 기말고사 (45%) + 과제 (20%)]'''
 import sys
 sys.stdin = open("input.txt", "r")
 from pprint import pprint
-import heapq
-from itertools import combinations
-'''
-[A+, AO, A-, B+, BO, B-, C+, CO, C-, DO]
-[총점 = 중간고사 (35%) + 기말고사 (45%) + 과제 (20%)]'''
+
+grades = ['A+', 'AO', 'A-', 'B+', 'BO', 'B-', 'C+', 'CO', 'C-', 'DO']
 T = int(input())
+grade_dict = {x: [] for x in grades}
+
 for test_case in range(1, T+1):
+    lst = []
     N, K = map(int,input().split())
+    print(N, K)
     matrix = [ list(map(int, input().split())) for _ in range(N)]
-    print('=====================')
-    # pprint(matrix)
+    k_score = matrix[K][0]*35 + matrix[K][1]*45 + matrix[K][2]*20
+    pprint(matrix)
     for i in range(N):
-        print((matrix[i][1]//100)*35 +(matrix[i][1]//100)*45 + (matrix[i][1]//100)*20)
-        # print((matrix[i][1]//100)*35 + (matrix[i][2]/100)*0.45+(matrix[i][3]/100)*0.2)
+        a = matrix[i][0]*35
+        b = matrix[i][1]*45
+        c = matrix[i][2]*20
+        score = a+b+c
+        lst.append(score)
+    lst = sorted(lst, reverse=True)
+    rank = lst.index(k_score)
+    print(rank)
+    cutline = len(lst)//10
+    grade = rank//cutline
+    print(f'#{test_case}', grades[grade], rank//cutline, len(lst), K, k_score)
+
+#1 A-
+#2 C-
+#3 C0
+#4 A-
+#5 C0
+#6 A-
+#7 C+
+#8 C+
+#9 B0
+#10 A0

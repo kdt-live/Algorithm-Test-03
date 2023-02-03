@@ -24,7 +24,7 @@ N = 5, K = 3 이고, 퍼즐의 모양이 아래 그림과 같이 주어졌을 �
 import sys
 sys.stdin = open("input.txt", "r")
 from pprint import pprint
-import heapq
+from collections import ChainMap
 from itertools import combinations
 
 T = int(input())
@@ -33,7 +33,7 @@ for test_case in range(1, T+1):
     cnt = 0
     N, K = map(int,input().split())
     matrix = [ list(map(int, input().split())) for _ in range(N)]
-    print("========================")
+    print(test_case, "========================")
     pprint(matrix)
     for i in range(N):
         if sum(matrix[i]) < 3:
@@ -42,8 +42,7 @@ for test_case in range(1, T+1):
             for j in range(0,N):
                 if matrix[i][j] == 1 == matrix[i][(j+1)%N] == matrix[i][(j+2)%N]:
                     cnt += 1
-                    print('여기',i, j)
-                    print(matrix[i])
+                    print('여기',i , matrix[i])
         else:
             for j in range(0,N):
                 if matrix[i][j] == 1 == matrix[i][(j+1)%N] == matrix[i][(j+2)%N]:
@@ -51,15 +50,15 @@ for test_case in range(1, T+1):
                         if matrix[i][j-1] != matrix[i][j]:
                             cnt += 1
                             print(i, j)
-                            print(matrix[i])
+                            print(i, matrix[i])
                         elif j-1 < 0:
                             cnt += 1
                             print(i, j)
-                            print(matrix[i])
+                            print(i, matrix[i])
                         elif j == N:
                             cnt += 1
                             print(i, j)
-                            print(matrix[i])
+                            print(i, matrix[i])
     print('cnt', cnt)
         # for j in range(1,N+1):
         #     if matrix[i][j-1] == matrix[i][j] == 1:
