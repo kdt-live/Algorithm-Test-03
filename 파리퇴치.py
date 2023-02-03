@@ -14,4 +14,5 @@ for i in range(1, T+1) :
                     cnt +=s[x+z][y+x]
                 print(cnt)
             if cnt > max :
-                max = cnt
+                max = cnt 
+                
