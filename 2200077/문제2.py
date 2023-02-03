@@ -13,7 +13,7 @@ for t in range(T):
             for x in range(M):
                 for y in range(M):
                     temp += matrix[i+x][j+y]
-            print(temp)
+       
             if ans < temp:
                 ans = temp
 
