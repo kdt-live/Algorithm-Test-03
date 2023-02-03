@@ -1,6 +1,7 @@
 import sys
 sys.stdin = open('input_3.txt', 'r')
 
+# 미완성
 s = ['A+', 'A0', 'A-', 'B+', 'B0', 'B-', 'C+', 'C0', 'C-', 'D0']
 T = int(input())
 for t in range(T):
