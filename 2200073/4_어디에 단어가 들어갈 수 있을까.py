@@ -1,8 +1,6 @@
 import sys
-# sys.stdin = open('input_4.txt', 'r')
-sys.stdin = open('2200073/input_4.txt', 'r')
+sys.stdin = open('input_4.txt', 'r')
 
-# 미완성
 T = int(input())
 for t in range(T):
     n, k = map(int, input().split())
@@ -21,15 +19,16 @@ for t in range(T):
                             cnt += 1
                         elif i[a+1] == 0:
                             cnt += 1
-                    j += k
-                    while j < n:
-                        if i[j] == 0:
-                            break
+                            j += k
                         else:
-                            j += 1
+                            j += k
+                            while j < n:
+                                if i[j] == 1:
+                                    j += 1
+                                else:
+                                    break
             j += 1
     d_ = list(zip(*d))
-    cnt2 = 0
     for i in d_:
         j = 0
         while j < n: 
@@ -40,14 +39,16 @@ for t in range(T):
                             break
                     else:
                         if j == n-k:
-                            cnt2 += 1
+                            cnt += 1
                         elif i[a+1] == 0:
-                            cnt2 += 1
-                    j += k
-                    while j < n:
-                        if i[j] == 0:
-                            break
+                            cnt += 1
+                            j += k
                         else:
-                            j += 1
+                            j += k
+                            while j < n:
+                                if i[j] == 1:
+                                    j += 1
+                                else:
+                                    break
             j += 1
-    print(cnt,cnt2)
+    print(f'#{t+1} {cnt}')
