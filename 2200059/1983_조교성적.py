@@ -1,5 +1,5 @@
-import sys
-sys.stdin = open("input.txt")
+# import sys
+# sys.stdin = open("input.txt")
 T = int(input())
 for t in range(1, T + 1):
     N, K = map(int, input().split())
@@ -10,17 +10,11 @@ for t in range(1, T + 1):
     for _ in range(N):
         s.append(list(map(int, input().split())))
     for i in range(N):
-        a.append(int((s[i][0]*0.35)+(s[i][1]*0.45)+(s[i][2]*0.20)))
+        a.append((s[i][0]*0.35)+(s[i][1]*0.45)+(s[i][2]*0.20))
     b = sorted(a, reverse=True)
     c = b.index(a[K-1])
-    print(a, b, c)
-    print(a[K-1])
 
     for i in grade:
         for j in range(N//10):
             student.append(i)
-    print(student)
     print(f'#{t} {student[c]}')
-
-
-# 중복 점수 고려 안함

@@ -1,6 +1,6 @@
-import sys
+# import sys
 from collections import deque
-sys.stdin = open("input.txt")
+# sys.stdin = open("input.txt")
 for i in range(10):
     T = int(input())
     print(f'#{i+1}', end=' ')
