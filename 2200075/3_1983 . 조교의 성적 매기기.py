@@ -18,33 +18,8 @@ for t in range(1,T + 1) :
             break
     
     print(f'#{t} ',end='')
+    score_list = ['A+','A0','A-','B+','B0','B-','C+','C0','C-']
     a = 0
-    if a<i + 1<=a+N/10 : 
-        print('A+')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('A0')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('A-')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('B+')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('B0')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('B-')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('C+')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('C0')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('C-')
-    a += N/10
-    if a<i + 1<=a+N/10 :
-        print('D0')
+    for j in score_list :
+        if a < i + 1 <= a + N/10 : print(j)
+        a += N/10
