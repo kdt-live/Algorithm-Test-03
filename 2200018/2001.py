@@ -6,10 +6,8 @@ input = sys.stdin.readline
 
 for i in range(int(input())):
     N, M = map(int, input().split())    
-    matrix = []
-    for _ in range(N):
-        matrix.append(list(map(int, input().split())))
-
+    matrix = [list(map(int, input().split())) for _ in range(N)]
+    
     result = []
     for j in range(N - M + 1):
         for k in range(N - M + 1):
