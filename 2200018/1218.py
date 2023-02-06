@@ -17,13 +17,7 @@ for T in range(10):
             try:
                 result[d.get(j)].pop()
             except:
+                print(f"#{T + 1} 0")
                 break
-
-    r = []
-    for i in result.values():
-        r += i
-
-    if r:
-        print(f"#{T + 1} 1")
     else:
-        print(f"#{T + 1} 0")
+        print(f"#{T + 1} 1")
