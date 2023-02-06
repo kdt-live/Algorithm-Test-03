@@ -21,5 +21,4 @@ for tc in range(10):
     cnt = 0
     if len(list2) == 0:
         cnt = 1
-
     print("#{} {}".format(tc + 1, cnt))
