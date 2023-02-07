@@ -12,7 +12,11 @@ for i in range(10):
         if element in ('(', '[', '{', '<'):
             bracket_list.append(element)
         else:
-            if bracket_dict[element] != bracket_list.pop():
+            try:
+                if bracket_dict[element] != bracket_list.pop():
+                    print(0)
+                    break
+            except:
                 print(0)
                 break
     else:
