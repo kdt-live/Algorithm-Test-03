@@ -23,15 +23,23 @@ N = 5, K = 3 이고, 퍼즐의 모양이 아래 그림과 같이 주어졌을 �
 
 import sys
 sys.stdin = open("input.txt", "r")
-from pprint import pprint
+
+def pprint(arr):
+    for row in arr:
+        print(*row)
 from collections import ChainMap
 from itertools import combinations
 
+# 테스트케이스 수
 T = int(input())
 lst = []
+
+# 테스트케이스 수 만큼 순회
 for test_case in range(1, T+1):
     cnt = 0
+    # 띄어쓰기로 구분된 정수 2개를 입력
     N, K = map(int,input().split())
+    # 2차원 리스트 저장 변수
     matrix = [ list(map(int, input().split())) for _ in range(N)]
     print(test_case, "========================")
     pprint(matrix)
