@@ -39,4 +39,5 @@ input = sys.stdin.readline
 inputs = sys.stdin.readlines
 
 rst = [test(x.strip()) for x in inputs()[1::2]]
-[print(f'#{i} {rst[i-1]}') for i in range(1, T+1)]
+for i in range(1, T + 1):
+    print(f'#{i} {rst[i - 1]}')
