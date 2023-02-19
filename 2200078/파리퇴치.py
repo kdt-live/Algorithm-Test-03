@@ -1,5 +1,5 @@
 def get_x(arr, v):
-    s = sum(sum(arr[i][j] for i in range(v[0], v[0]+M) if i in range(N)) for j in range(v[1], v[1]+M) if j in range(N))
+    s = sum(sum(arr[i][j] for i in range(v[0], v[0]+M) if i < N) for j in range(v[1], v[1]+M) if j < N)
     return s
 
 def test(N, M):
